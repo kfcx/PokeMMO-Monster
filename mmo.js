@@ -1,4 +1,4 @@
-const API_URL = 'https://mmo.naihe.eu.org/monster/current';
+const API_URL = 'https://mmo.ydev.tech/monster/current';
 const REFRESH_INTERVAL = 10 * 60 * 1000; // 10分钟
 let lastFetchTime = 0;
 
