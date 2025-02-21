@@ -719,6 +719,14 @@ function startRefreshInterval() {
 document.addEventListener('DOMContentLoaded', () => {
     initializePage();
     startRefreshInterval();
+    const githubLink = document.querySelector('.developer-link');
+    githubLink.addEventListener('click', function(e) {
+        e.preventDefault(); // 阻止默认行为
+        const newWindow = window.open(this.href, '_blank');
+        if (newWindow === null) {
+            window.location.href = this.href;
+        }
+    });
 });
 
 // 页面隐藏时停止刷新，显示时恢复刷新
