@@ -1,10 +1,9 @@
 const API_URL = 'https://mmo.ydev.tech/monster/current';
-const REFRESH_INTERVAL = 10 * 60 * 1000; // 10分钟
 let lastFetchTime = 0;
 
 async function fetchMonsterData() {
     const CACHE_KEY = 'pokemmo_monster_data';
-    const CACHE_DURATION = 30 * 60 * 1000; // 30分钟缓存时间
+    const CACHE_DURATION = 5 * 60 * 1000; // 5分钟缓存时间
 
     try {
         // 从响应数据中解析宝可梦和技能信息
@@ -117,11 +116,6 @@ async function fetchMonsterData() {
         // 如果连过期数据都没有，使用默认数据
         return null;
     }
-}
-
-function shouldRefreshData() {
-    const now = Date.now();
-    return !lastFetchTime || (now - lastFetchTime) >= REFRESH_INTERVAL;
 }
 
 const regionNames = {
