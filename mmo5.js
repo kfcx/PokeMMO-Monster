@@ -16,7 +16,7 @@ async function fetchMonsterData() {
                 console.log('使用缓存数据，剩余有效期：',
                     Math.floor((CACHE_DURATION - (Date.now() - cache.timestamp)) / 60000), '分钟');
                 cache.data.forEach(item => {
-                    const matches = item.text.match(/\[头目:(.*)\]\[梦特:(.*)\]\[(.*)\]\(/);
+                    const matches = item.text.cn.match(/\[头目:(.*)\]\[梦特:(.*)\]\[(.*)\]\(/);
                     if (matches) {
                         const pokemonName = matches[1];
                         const ability = matches[2];
@@ -52,7 +52,7 @@ async function fetchMonsterData() {
         }
         const data = await response.json();
         data.forEach(item => {
-            const matches = item.text.match(/\[头目:(.*)\]\[梦特:(.*)\]\[(.*)\]\(/);
+            const matches = item.text.cn.match(/\[头目:(.*)\]\[梦特:(.*)\]\[(.*)\]\(/);
             console.log(item.text)
             if (matches) {
                 const pokemonName = matches[1];
